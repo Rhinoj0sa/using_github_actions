@@ -1,0 +1,48 @@
+name: Issue Template
+description: Template to capture issue information
+title: titulo de la issue
+labels: label
+assignees: asignados
+
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Enter your name
+      placeholder: Your name
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Enter the description
+      placeholder: Description
+
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: Enter your email
+      placeholder: Your email
+
+  - type: input
+    id: entity
+    attributes:
+      label: Entity to Modify
+      description: Enter the entity to modify
+      placeholder: Entity
+
+  - type: input
+    id: feature
+    attributes:
+      label: Feature to Modify
+      description: Enter the feature to modify
+      placeholder: Feature
+
+  - type: textarea
+    id: queries
+    attributes:
+      label: List of Queries
+      description: Enter the list of queries
+      placeholder: Queries
