@@ -1,0 +1,45 @@
+name: Create PR from Form
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Create new branch
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git checkout -b form-submission-${{ github.event.issue.number }}
+
+    - name: Create SQL query file
+      run: |
+        echo "${{ github.event.issue.body }}" > query.sql
+
+    - name: Commit changes
+      run: |
+        git add query.sql
+        git commit -m "Add SQL query from form submission #${{ github.event.issue.number }}"
+
+    - name: Push changes
+      run: |
+        git push origin form-submission-${{ github.event.issue.number }}
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: form-submission-${{ github.event.issue.number }}
+        title: "Add SQL query from form submission #${{ github.event.issue.number }}"
+        body: "This PR adds the SQL query from the form submission #${{ github.event.issue.number }}."
