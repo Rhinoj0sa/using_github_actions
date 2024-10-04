@@ -30,20 +30,11 @@ jobs:
     - name: Commit changes
       run: |
         echo "Committing changes to form-submission-${{ github.event.issue.number }}"
-#        git add query.sql
-#        git commit -m "Add SQL query from form submission #${{ github.event.issue.number }}"
 
     - name: Push changes
       run: |
-# git push origin form-submission-${{ github.event.issue.number }}
         echo "Pushing changes to form-submission-${{ github.event.issue.number }}"
 
     - name: Create Pull Request
       run: |
         echo "Creating pull request for form submission #${{ github.event.issue.number }}"
-#      uses: peter-evans/create-pull-request@v3
-#      with:
-#        token: ${{ secrets.GITHUB_TOKEN }}
-#        branch: form-submission-${{ github.event.issue.number }}
-#        title: "Add SQL query from form submission #${{ github.event.issue.number }}"
-#        body: "This PR adds the SQL query from the form submission #${{ github.event.issue.number }}."
