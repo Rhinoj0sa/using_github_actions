@@ -1,0 +1,20 @@
+# File: .github/workflows/print-issue-data.yml
+name: Print Issue Data
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  print-issue-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Issue Data
+      run: |
+        echo "Name: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Name: ).*')"
+        echo "Description: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Description: ).*')"
+        echo "Email: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Email: ).*')"
+        echo "Entity to Modify: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Entity to Modify: ).*')"
+        echo "Feature to Modify: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Feature to Modify: ).*')"
+        echo "List of Queries: $(echo "${{ github.event.issue.body }}" | grep -oP '(?<=List of Queries: ).*')"
