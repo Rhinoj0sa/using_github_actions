@@ -25,16 +25,21 @@ jobs:
 
     - name: Create SQL query file
       run: |
-        echo "${{ github.event.issue.body }}" > query.sql
+        ENTITY=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Entity to Modify: ).*')
+        mkdir -p "queries/$ENTITY"
+        echo "${{ github.event.issue.body }}" > "queries/$ENTITY/query.sql"
 
     - name: Commit changes
       run: |
-        echo "Committing changes to form-submission-${{ github.event.issue.number }}"
+        git add "queries/$ENTITY/query.sql"
+        git commit -m "Add SQL query from issue #${{ github.event.issue.number }}"
 
     - name: Push changes
       run: |
-        echo "Pushing changes to form-submission-${{ github.event.issue.number }}"
+        git push origin form-submission-${{ github.event.issue.number }}
 
     - name: Create Pull Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        echo "Creating pull request for form submission #${{ github.event.issue.number }}"
+        gh pr create --title "Form submission #${{ github.event.issue.number }}" --body "This PR contains the SQL query from issue #${{ github.event.issue.number }}."
