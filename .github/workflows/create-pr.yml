@@ -29,8 +29,9 @@ jobs:
 
     - name: Commit changes
       run: |
-        git add query.sql
-        git commit -m "Add SQL query from form submission #${{ github.event.issue.number }}"
+        echo "Committing changes to form-submission-${{ github.event.issue.number }}"
+#        git add query.sql
+#        git commit -m "Add SQL query from form submission #${{ github.event.issue.number }}"
 
     - name: Push changes
       run: |
