@@ -27,6 +27,19 @@ body:
       placeholder: Your email
 
   - type: dropdown
+    id: action
+    attributes:
+      label:  
+      description: Accion a realizar
+      options:
+        - new entity
+        - update entity
+        - universe change
+        - optimization
+    validations:
+      required: true
+
+  - type: dropdown
     id: entity
     attributes:
       label: Entidad
