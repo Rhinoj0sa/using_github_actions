@@ -26,12 +26,36 @@ body:
       description: Enter your email
       placeholder: Your email
 
-  - type: input
+  - type: dropdown
     id: entity
     attributes:
-      label: Entity to Modify
-      description: Enter the entity to modify
-      placeholder: Entity
+      label: Entidad
+      description: Entidad impactada por la optimización
+      options:
+        - account
+        - bankwithdrawals
+        - bureaus
+        - ccardaggpercat
+        - contactcollection
+        - coronavaucher
+        - creditcard
+        - credits
+        - devices
+        - flags
+        - funding
+        - merchantsbehavior
+        - names
+        - navigation
+        - notifications
+        - payments
+        - prepaid
+        - sellerclassification
+        - sellers
+        - shipments
+        - sociodemographic
+        - userpix
+    validations:
+      required: true
 
   - type: input
     id: feature
