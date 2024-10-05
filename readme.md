@@ -58,4 +58,3 @@ This GitHub Action workflow creates an issue from a pull request when it is open
 
 ## License
 
-This project is licensed under the MIT License.
