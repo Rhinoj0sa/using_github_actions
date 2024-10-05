@@ -21,6 +21,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
         gh issue create --title "Issue from PR: $PR_TITLE" --body "$PR_BODY"
         
