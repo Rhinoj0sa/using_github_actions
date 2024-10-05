@@ -1,0 +1,22 @@
+name: "Pull Request Template"
+description: "Template to capture PR information"
+body:
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: "Select the type of change"
+      options:
+        - NEW_ENTITY
+        - UNIVERSE_CHANGE
+        - OPTIMIZATION
+        - UPDATE_ENTITY
+  - type: input
+    id: pr_name
+    attributes:
+      label: "Name of the PR"
+      placeholder: "Enter the name of the PR"
+  - type: textarea
+    id: pr_description
+    attributes:
+      label: "Description"
+      placeholder: "Enter the description of the PR"
