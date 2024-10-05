@@ -62,3 +62,4 @@ This project is licensed under the MIT License.
 
 le colocamos algunaas cosas al pr a ver si hay cambios
 ```
+metele mas datos al readme solo para levatar el pr edited
