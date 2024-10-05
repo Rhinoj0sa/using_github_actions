@@ -58,7 +58,16 @@ This GitHub Action workflow creates an issue from a pull request when it is open
 
 ## License
 
-This project is licensed under the MIT License.
+estoy llegando a un punto en donde no puede crear el issue, me sale el siguiente error:
 
-le colocamos algunaas cosas al pr a ver si hay cambios
-```
+```Run gh issue create --title "Issue from PR: $PR_TITLE" --body "$PR_BODY"
+  gh issue create --title "Issue from PR: $PR_TITLE" --body "$PR_BODY"
+  shell: /usr/bin/bash -e {0}
+  env:
+    PR_TITLE: [FSGC][ACCOUNT][OPTIMIZATION] modified calc
+    PR_BODY: There are a modification in the calc 
+    GITHUB_TOKEN: ***
+GraphQL: Resource not accessible by integration (createIssue)
+Error: Process completed with exit code 1.
+
+aparenteme es el token, ya lo cambie voy a generar otro con todos los powers primero
