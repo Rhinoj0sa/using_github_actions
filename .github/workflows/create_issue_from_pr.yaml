@@ -19,6 +19,8 @@ jobs:
         PR_BODY="${{ github.event.pull_request.body }}"
         echo "PR_TITLE=$PR_TITLE" >> $GITHUB_ENV
         echo "PR_BODY=$PR_BODY" >> $GITHUB_ENV
+        echo "PR_TITLE=$PR_TITLE"
+        echo "PR_BODY=$PR_BODY" + ${{ github.event.pull_request.title }}
 
     - name: Create Issue
       run: |
