@@ -19,6 +19,7 @@ jobs:
         DESCRIPTION=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Descripción:\s).+')
         echo "ENTITY=$ENTITY" >> $GITHUB_ENV
         echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
+        echo "${{ github.event.issue.body }}"
 
     - name: Fork the repository
       env:
