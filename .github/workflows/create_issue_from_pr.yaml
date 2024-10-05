@@ -21,8 +21,6 @@ jobs:
         echo "PR_BODY=$PR_BODY" >> $GITHUB_ENV
 
     - name: Create Issue
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_SECRET }}
       run: |
         gh auth login --with-token <<< "${{ secrets.REPO_SECRET }}"
         gh issue create --title "$PR_TITLE" --body "$PR_BODY"
