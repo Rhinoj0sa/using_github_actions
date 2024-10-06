@@ -26,4 +26,4 @@ jobs:
     - name: Create Issue
       run: |
         gh auth login --with-token <<< "${{ secrets.REPO_SECRET }}"
-        gh issue create --title "$PR_TITLE" --body "$PR_LINK" --assignee "@me" --repo "${{ github.repository }}" --template "pull_request_template.yaml"
+        gh issue create --title "$PR_TITLE" --assignee "@me" --repo "${{ github.repository }}" --template "pull_request_template.yaml"
