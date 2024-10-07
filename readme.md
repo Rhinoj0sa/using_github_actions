@@ -71,3 +71,5 @@ GraphQL: Resource not accessible by integration (createIssue)
 Error: Process completed with exit code 1.
 
 aparenteme es el token, ya lo cambie voy a generar otro con todos los powers primerogit pull
+
+modified 
